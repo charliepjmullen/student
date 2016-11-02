@@ -1,0 +1,61 @@
+<%= form_for(@candidate) do |f| %>
+  <% if @candidate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@candidate.errors.count, "error") %> prohibited this candidate from being saved:</h2>
+
+      <ul>
+      <% @candidate.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :First_name %><br>
+    <%= f.text_field :can_name %>
+  </div>
+  <div class="field">
+    <%= f.label :Surname %><br>
+    <%= f.text_field :can_surname %>
+  </div>
+  <div class="field">
+    <%= f.label :dob %><br>
+    <%= f.date_select :dob %>
+  </div>
+  <div class="field">
+    <%= f.label :College %><br>
+    <%= f.text_field :college %>
+  </div>
+  <div class="field">
+    <%= f.label :College_Year %><br>
+    <%= f.number_field :college_year %>
+  </div>
+  <div class="field">
+    <%= f.label :Phone_Number %><br>
+    <%= f.number_field :phone_num %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :can_email %>
+  </div>
+  <div class="field">
+    <%= f.label :Address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :Experience %><br>
+    <%= f.text_area :experience %>
+  </div>
+ <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

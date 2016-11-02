@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @job.name %>
+</p>
+
+<p>
+  <strong>Employer:</strong>
+  <%= @job.employer %>
+</p>
+
+
+<p>
+  <strong>Sector:</strong>
+  <%= @job.sector_id %>
+</p>
+
+<p>
+  <strong>Experience req:</strong>
+  <%= @job.experience_req %>
+</p>
+
+<p>
+  <strong>Job info:</strong>
+  <%= @job.job_info %>
+</p>
+
+<h2>Star Rating and comment: </h2>
+    <%=form_for([@job, Request.new]) do |f| %>
+	
+<%= f.text_area:content, :rows => 4, :cols=> 40%>
+    <div class = "actions">
+        <%=f.submit "Post a Comment"%>
+	</div>
+<% end %>
+
+<%if @job.request.empty? %>
+    <h3> You are the first to comment </h3>
+<% else %>
+     <h2> What others felt about this:</h2>
+	 <% @job.requests.reverse.each do |request| %>
+	    <p><%= request.content %>
+		Posted <%=time_ago_in_words(request.created_at)%> ago by
+		<%=request.candidate.can_name%></p>
+	<% end %>
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id = "banner">
+         <%= image_tag("studentjobs.jpg", :size=>"150x50") %>
+	     <%= "EmployMe.com" %>
+</div>
+
+<% flash.each do |key, value| %>
+  <div class="flash <%= key %>">
+    <%= value %>
+  </div>
+<% end %>
+
+<div id = "nav">
+     <ul>
+        <li><%=link_to "Home", root_path %></li>
+		<li><%=link_to "Sectors", sectors_path %></li>
+		<li><%=link_to "Jobs", jobs_path%></li>
+		<li><%=link_to "Employers", employers_path%></li>
+		<li><%=link_to "Candidate", candidates_path%></li>
+	    
+		<% if !signed_in? %>
+		   <li><%=link_to "Log in",login_path %></li>
+		<% else %>
+		   <li>Signed in as <%= @current_candidate.name%></li>
+		   <li><%= link_to "Log Out", logout_path%></li>
+		<%end%>
+      </ul>
+</div>
+<%= yield %>
+
+
+</body>
+</html>
