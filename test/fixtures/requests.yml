@@ -3,7 +3,9 @@
 one:
   job_id: MyString
   can_id: MyString
+  content: MyText
 
 two:
   job_id: MyString
   can_id: MyString
+  content: MyText

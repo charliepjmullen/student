@@ -1,32 +1,24 @@
-<style>
-h1 {
-    text-align: center;
-}
-
-</style>
-
-<h1>Listing candidates</h1>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Candidates</title>
+</head>
+<body>
 
 
-<div class="w3-container">
+<div class="container">
   
-
-<table class="w3-table-all w3-small">
+<h2> Candidates </h2>
+<table class = "table table-hover">
   <thead>
-    <tr class="w3-blue ">
+    <tr>
       <th>Name</th>
       <th>Surname</th>
-      <th>DOB</th>
       <th>College</th>
       <th>College Year</th>
       <th>Phone Number</th>
       <th>email</th>
       <th>Address</th>
-      <th>Experience</th>
-      <th>password</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -36,17 +28,14 @@ h1 {
       <tr>
         <td><%= candidate.can_name %></td>
         <td><%= candidate.can_surname %></td>
-        <td><%= candidate.dob %></td>
         <td><%= candidate.college %></td>
         <td><%= candidate.college_year %></td>
         <td><%= candidate.phone_num %></td>
         <td><%= candidate.can_email %></td>
         <td><%= candidate.address %></td>
-        <td><%= candidate.experience %></td>
-        <td><%= candidate.password_digest %></td>
-        <td><%= link_to 'Show', candidate %></td>
-        <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
-        <td><%= link_to 'Destroy', candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', candidate, class:'btn btn-mini btn-success' %></td>
+        <td><%= link_to 'Edit', edit_candidate_path(candidate), class:'btn btn-mini btn-danger' %></td>
+        <td><%= link_to 'Destroy', candidate, method: :delete, class:'btn btn-mini', data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -29,6 +29,12 @@ Rails.application.routes.draw do
    #root :to=>'pages#home
    #'welcome#index'
 
+  resources :jobs do
+    resources :requests
+	end
+end
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -77,4 +83,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+  

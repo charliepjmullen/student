@@ -6,6 +6,7 @@
 </p>
 
 <p>
+
   <strong>Employer:</strong>
   <%= @job.employer %>
 </p>
@@ -26,24 +27,26 @@
   <%= @job.job_info %>
 </p>
 
-<h2>Star Rating and comment: </h2>
+<h2>People who have requested this job: </h2>
     <%=form_for([@job, Request.new]) do |f| %>
-	
+
+</h3></br>
 <%= f.text_area:content, :rows => 4, :cols=> 40%>
     <div class = "actions">
-        <%=f.submit "Post a Comment"%>
+        <%=f.submit "Apply for this job"%>
 	</div>
 <% end %>
 
-<%if @job.request.empty? %>
-    <h3> You are the first to comment </h3>
+<%if @job.requests.empty? %>
+    <h3> You are the first to apply for this job </h3>
 <% else %>
-     <h2> What others felt about this:</h2>
+     <h2> Who else has applied for this job:</h2>
 	 <% @job.requests.reverse.each do |request| %>
 	    <p><%= request.content %>
 		Posted <%=time_ago_in_words(request.created_at)%> ago by
 		<%=request.candidate.can_name%></p>
 	<% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+<%= link_to 'Back', job_path %>

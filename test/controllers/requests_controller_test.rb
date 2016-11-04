@@ -18,7 +18,7 @@ class RequestsControllerTest < ActionController::TestCase
 
   test "should create request" do
     assert_difference('Request.count') do
-      post :create, request: { can_id: @request.can_id, job_id: @request.job_id }
+      post :create, request: { can_id: @request.can_id, job_id: @request.job_id , content: @request.content}
     end
 
     assert_redirected_to request_path(assigns(:request))

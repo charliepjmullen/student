@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Student</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Employ Me</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id = "banner">
-         <%= image_tag("studentjobs.jpg", :size=>"150x50") %>
-	     <%= "EmployMe.com" %>
+ <div class = "jumbotron text-center">
+         <%= image_tag("employmentbanner.png", :size=>"1155x100") %>
 </div>
 
 <% flash.each do |key, value| %>
@@ -18,19 +19,20 @@
   </div>
 <% end %>
 
-<div id = "nav">
-     <ul>
-        <li><%=link_to "Home", root_path %></li>
-		<li><%=link_to "Sectors", sectors_path %></li>
-		<li><%=link_to "Jobs", jobs_path%></li>
-		<li><%=link_to "Employers", employers_path%></li>
-		<li><%=link_to "Candidate", candidates_path%></li>
+<div class="container" style="font-size:30px; background-color: #5bc0de;">
+   <ul class="nav navbar-nav">
+   
+        <%=link_to "Home", root_path %>
+		<%=link_to "Sectors", sectors_path %>
+		<%=link_to "Jobs", jobs_path%>
+		<%=link_to "Employers", employers_path%>
+		<%=link_to "Candidate", candidates_path%>
 	    
 		<% if !signed_in? %>
-		   <li><%=link_to "Log in",login_path %></li>
+		   <%=link_to "Log in",login_path %>
 		<% else %>
-		   <li>Signed in as <%= @current_candidate.name%></li>
-		   <li><%= link_to "Log Out", logout_path%></li>
+		   Signed in as <%= @current_candidate.can_name%>
+		   <%= link_to "Log Out", logout_path%>
 		<%end%>
       </ul>
 </div>
