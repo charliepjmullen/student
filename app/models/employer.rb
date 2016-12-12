@@ -3,11 +3,16 @@ class Employer < ActiveRecord::Base
 	 validates_uniqueness_of:emp_email
 	 
 	 has_many :jobs, dependent: :destroy
+	 belongs_to :sector
 	 
 	 validates :emp_name, presence: true
 	 validates :location, presence: true
 	 validates :password_digest, presence: true
-	 validates :emp_sector, presence: true
+	 
 	 validates :emp_email, presence: true
 	 
+	 geocoded_by :location
+	 after_validation :geocode, :if => :location_changed?
+	 
+
 end

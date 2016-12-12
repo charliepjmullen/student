@@ -3,6 +3,10 @@
 <head>
 	<title>Employ Me</title>
     <meta charset="utf-8">
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -31,7 +35,7 @@
 		<% if !signed_in? %>
 		   <%=link_to "Log in",login_path %>
 		<% else %>
-		   Signed in as <%= @current_candidate.can_name%>
+		   Welcome, <%= @current_candidate.can_name%>
 		   <%= link_to "Log Out", logout_path%>
 		<%end%>
       </ul>

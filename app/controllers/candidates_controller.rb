@@ -25,10 +25,11 @@ class CandidatesController < ApplicationController
   # POST /candidates.json
   def create
     @candidate = Candidate.new(candidate_params)
-
-    respond_to do |format|
+  
+   respond_to do |format|
       if @candidate.save
-        format.html { redirect_to @candidate, notice: 'Candidate was successfully created.' }
+	    Usermailer.welcome(@candidate).deliver_now
+        format.html { redirect_to @candidate, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @candidate }
       else
         format.html { render :new }
@@ -69,6 +70,6 @@ class CandidatesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidate_params
-      params.require(:candidate).permit(:can_name, :can_surname, :dob, :college, :college_year, :phone_num, :can_email, :address, :experience, :password, :password_confirmation)
+      params.require(:candidate).permit(:can_name, :can_surname, :dob, :college, :college_year, :phone_num, :can_email, :address, :experience, :password, :password_confirmation, :attachment)
     end
 end

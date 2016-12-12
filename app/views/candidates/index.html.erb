@@ -19,6 +19,7 @@
       <th>Phone Number</th>
       <th>email</th>
       <th>Address</th>
+	  <th>CV Link</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -33,6 +34,7 @@
         <td><%= candidate.phone_num %></td>
         <td><%= candidate.can_email %></td>
         <td><%= candidate.address %></td>
+		<td><%= link_to "Download CV", candidate.attachment_url %></td>
         <td><%= link_to 'Show', candidate, class:'btn btn-mini btn-success' %></td>
         <td><%= link_to 'Edit', edit_candidate_path(candidate), class:'btn btn-mini btn-danger' %></td>
         <td><%= link_to 'Destroy', candidate, method: :delete, class:'btn btn-mini', data: { confirm: 'Are you sure?' } %></td>

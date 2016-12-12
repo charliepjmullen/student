@@ -24,7 +24,7 @@
       <tr>
         <td><%= job.name %></td>
         <td><%= job.employer %></td>
-        <td><%= job.sector_id %></td>
+        <td><%= job.sector.sector_name %></td>
         <td><%= link_to 'Show', job, class:'btn btn-mini btn-success'  %></td>
         <td><%= link_to 'Edit', edit_job_path(job), class:'btn btn-mini btn-danger' %></td>
         <td><%= link_to 'Destroy', job, method: :delete, class:'btn btn-mini', data: { confirm: 'Are you sure?' } %></td>

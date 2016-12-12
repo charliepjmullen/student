@@ -7,7 +7,7 @@
 
 <p>
   <strong>Num of jobs:</strong>
-  <%= @sector.num_of_jobs %>
+  <%= @sector.jobs.count %>
 </p>
 
 <%= link_to 'Edit', edit_sector_path(@sector) %> |

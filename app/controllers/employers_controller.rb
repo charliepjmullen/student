@@ -69,6 +69,6 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employer_params
-      params.require(:employer).permit(:emp_name, :location, :emp_sector, :emp_email, :password, :password_confirmation)
+      params.require(:employer).permit(:emp_name, :location, :sector_id, :emp_email, :password, :password_confirmation, :latitude, :longitude)
     end
 end

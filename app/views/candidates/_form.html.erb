@@ -9,36 +9,43 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+	<%end%>
 
   <div class="field">
     <%= f.label :First_name %><br>
     <%= f.text_field :can_name %>
   </div>
+  
   <div class="field">
     <%= f.label :Surname %><br>
     <%= f.text_field :can_surname %>
   </div>
+  
   <div class="field">
     <%= f.label :dob %><br>
     <%= f.date_field :dob %>
   </div>
+  
   <div class="field">
     <%= f.label :College %><br>
-    <%= f.text_field :college %>
+	<%= f.text_field :college %>
   </div>
+    
   <div class="field">
     <%= f.label :College_Year %><br>
-    <%= f.number_field :college_year %>
+    <%= f.select :college_year, ["1", "2","3","4"]%>
   </div>
+  
   <div class="field">
     <%= f.label :Phone_Number %><br>
     <%= f.number_field :phone_num %>
   </div>
+  
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :can_email %>
   </div>
+  
   <div class="field">
     <%= f.label :Address %><br>
     <%= f.text_field :address %>
@@ -47,6 +54,7 @@
     <%= f.label :Experience %><br>
     <%= f.text_area :experience %>
   </div>
+  
  <div class="field">
     <%= f.label :password %><br>
     <%= f.password_field :password %>
@@ -55,6 +63,13 @@
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
+ 
+  
+ 
+  <%=f.label :attachment %>
+  <%=f.file_field :attachment %>
+  
+  
   <div class="actions">
     <%= f.submit %>
   </div>

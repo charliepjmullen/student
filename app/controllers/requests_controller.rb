@@ -16,6 +16,6 @@ class RequestsController < ApplicationController
 	 
 	 private
 	 def request_params #This is the method ehich whitelists the data fields from the format
-	       params.require(:request).permit( :request_id, :content, :job_id, :candidate_id)
+	       params.require(:request).permit(:request_id, :content, :job_id, :candidate_id)
 	 end
 end

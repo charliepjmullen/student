@@ -19,6 +19,12 @@ class Candidate < ActiveRecord::Base
 		d = Date.new(Date.today.year, dob.month, dob.day)
 		d.year - dob.year - (d > Date.today ? 1 : 0)
 	end
+	
+	mount_uploader :attachment, AttachmentUploader #tells rails to use this uploader for this model
+	
+	
+	
+	#NUMBERS = ["1","2","3","4"]
 	#def create
 	##save user
 	#flash[:notice] = "User successfully created"

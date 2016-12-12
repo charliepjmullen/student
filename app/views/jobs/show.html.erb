@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>Name:</strong>
@@ -12,10 +12,7 @@
 </p>
 
 
-<p>
-  <strong>Sector:</strong>
-  <%= @job.sector_id %>
-</p>
+
 
 <p>
   <strong>Experience req:</strong>
@@ -44,7 +41,7 @@
 	 <% @job.requests.reverse.each do |request| %>
 	    <p><%= request.content %>
 		Posted <%=time_ago_in_words(request.created_at)%> ago by
-		<%=request.candidate.can_name%></p>
+		<%= link_to request.candidate.can_name, request.candidate%></p>
 	<% end %>
 <% end %>
 

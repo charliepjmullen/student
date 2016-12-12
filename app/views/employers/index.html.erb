@@ -24,7 +24,7 @@
       <tr>
         <td><%= employer.emp_name %></td>
         <td><%= employer.location %></td>
-        <td><%= employer.emp_sector %></td>
+        <td><%= employer.sector.sector_name %></td>
         <td><%= link_to 'Show', employer, class:'btn btn-mini btn-success'%></td>
         <td><%= link_to 'Edit', edit_employer_path(employer), class:'btn btn-mini btn-danger' %></td>
         <td><%= link_to 'Destroy', employer, method: :delete, class:'btn btn-mini', data: { confirm: 'Are you sure?' } %></td>

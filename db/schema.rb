@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007124512) do
+ActiveRecord::Schema.define(version: 20161128201322) do
 
   create_table "candidates", force: true do |t|
     t.string   "can_name"
@@ -23,9 +23,10 @@ ActiveRecord::Schema.define(version: 20161007124512) do
     t.string   "can_email"
     t.string   "address"
     t.text     "experience"
-    t.string   "can_password"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "attachment"
   end
 
   create_table "employers", force: true do |t|
@@ -33,15 +34,17 @@ ActiveRecord::Schema.define(version: 20161007124512) do
     t.string   "location"
     t.string   "emp_sector"
     t.string   "emp_email"
-    t.string   "emp_password"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "jobs", force: true do |t|
     t.string   "name"
     t.string   "employer"
-    t.string   "sector"
+    t.integer  "sector_id"
     t.text     "experience_req"
     t.text     "job_info"
     t.datetime "created_at"
@@ -50,9 +53,10 @@ ActiveRecord::Schema.define(version: 20161007124512) do
 
   create_table "requests", force: true do |t|
     t.string   "job_id"
-    t.string   "can_id"
+    t.string   "candidate_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "content"
   end
 
   create_table "sectors", force: true do |t|

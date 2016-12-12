@@ -20,7 +20,7 @@
 		<% @sectors.each do |sector| %>
 		  <tr>
 			<td><%= sector.sector_name %></td>
-			<td><%= sector.num_of_jobs %></td>
+			<td><%= sector.jobs.count %></td>
 			<td><%= link_to 'Show', sector, class:'btn btn-mini btn-success' %></td>
 			<td><%= link_to 'Edit', edit_sector_path(sector), class:'btn btn-mini btn-danger' %></td>
 			<td><%= link_to 'Destroy', sector, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-mini' %></td>
